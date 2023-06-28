@@ -1,0 +1,31 @@
+<div class="card h-doctor mb-1">
+    <div class="content">
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src="{{data.image}}" class="card-img img-fluid rounded-circle " />
+        <!-- <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a> -->
+      </div>
+      <div class="card-body">
+        <h2 class="card-title"><a>{{data.name}}</a></h2>
+        <h5 class="card-text">
+          {{data.title}}
+         </h5>
+        <!-- <p class="mb-2">{{data.rate}}</p> -->
+        <ngx-star-rating [id]="'rating'"></ngx-star-rating>
+
+        
+        
+        <!-- <hr class="my-4" />
+        <p class="lead badge bg-primary text-wrap"><strong>الموقع بالتحديد</strong></p>
+        <div class="mb-2">{{data.location}}</div>  -->
+      </div>
+    </div>
+  </div>
+  <div class="button_card">
+    <a [routerLink]="['/DoctorDetails',data._id]" class="btn btn-outline-success  m-1">show more details</a>
+  </div>
+
+  
+
+

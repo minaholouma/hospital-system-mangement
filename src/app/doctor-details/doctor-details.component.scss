@@ -1,0 +1,39 @@
+.pharmacy-shop{
+    border: #3fbbc0 solid;
+    display: flex;
+      justify-content: center;
+      align-items:center ;
+      justify-content: space-between;
+      border-radius: 10px;
+      background-color: #228cd2;
+      color: #fff;
+      height: 400px;
+      background-size: cover;
+      margin-bottom: 20px;
+  
+  }
+  
+  .text-phar{
+    // direction:rtl;
+  width: 45%;
+  margin-top: -5%;
+  margin-left: 10px;
+  }
+  
+  .text-phar .card-title{
+    margin-left: 10px;
+    padding-bottom: 15px;
+  }
+  
+  .text-phar .card-text{
+    margin-left: 10px;
+  }
+  .text-phar .btn{
+    margin-left: 10px;
+    border-radius: 10px;
+  }
+
+  .doctorimg{
+    width: 60%;
+    height: 300px;
+  }

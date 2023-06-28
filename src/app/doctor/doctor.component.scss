@@ -1,0 +1,38 @@
+.h-doctor{
+    height:350px;
+    flex: 1;
+    background-color:rgb(240, 235, 235)
+}
+
+.button_card{
+    display: flex;
+    justify-content: center;    
+}
+.btn{
+    width: 95%;
+}
+.card-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(11, 76, 76);
+    display: flex;
+    justify-content:center ;
+}
+.card-title:hover{
+    color: cadetblue;
+}
+.card-text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(11, 76, 76);
+    display: flex;
+    justify-content:center ;
+}
+.card-img{
+    width: 150px;
+    height: 150px;
+margin-top: 5px;
+margin-left: 90px;
+
+}
+
+
+

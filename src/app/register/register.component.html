@@ -1,0 +1,58 @@
+<div class="Register">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+        <div class="text-center mb-5">
+            <img src="../../assets/img/login/undraw_Sign_up_n6im.png" alt="Image" height="70" class="mb-3">
+            <div class="text-900 text-3xl font-medium mb-3">Welcome</div>
+            <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+        </div>
+
+        <div class=" w-75 mx-auto py-5">
+            <h1>Register Now</h1>
+            <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+                <div class="formGroup">
+                    <div class="form-control">
+                        <label for="first_name">First Name </label>
+                        <input [class.is-invalid]="first_name.invalid &&  first_name.touched"
+                            formControlName="first_name" type="text" class="form-control" name="first_name"
+                            id="first_name">
+                        <div *ngIf="first_name?.errors  && first_name?.touched" class="alert alert-danger mt-2 ">
+                            <p *ngIf="first_name?.errors['required']">first name is required</p>
+                            <p *ngIf="first_name?.errors['minlength']">first name minLength is 3</p>
+                            <p *ngIf="first_name?.errors['maxlength']">first name maxLength is 8</p>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="last_name">Last Name </label>
+                        <input [class.is-invalid]="last_name.invalid && last_name.touched" formControlName="last_name"
+                            type="text" class="form-control" name="last_name" id="last_name">
+                        <div *ngIf="last_name.invalid && last_name.touched" class="alert alert-danger mt-2 ">
+                            <p *ngIf="last_name.errors?.['required']">first name is required</p>
+                            <p *ngIf="last_name.errors?.['minlength']">first name minLength is 3</p>
+                            <p *ngIf="last_name.errors?.['maxlength']">first name maxLength is 8</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-control">
+                        <label for="email">Email </label>
+                        <input formControlName="email" type="email " class="form-control" name="email" id="email">
+                    </div>
+
+
+                    <div class="form-control">
+                        <label for="password">Password </label>
+                        <input formControlName="password" autocomplete type="password" class="form-control"
+                            name="password" id="password">
+                    </div>
+
+                    <div class="form-control">
+                        <label for="age">Age </label>
+                        <input formControlName="age" type="number " class="form-control" name="age" id="age">
+                    </div>
+                </div>
+                <button pButton pRipple label="Register" icon="pi pi-user" class="w-full"
+                    type="submit">Register</button>
+            </form>
+        </div>
+    </div>
