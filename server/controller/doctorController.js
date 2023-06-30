@@ -1,14 +1,23 @@
 const doctorSchema = require("./../model/doctorModel");
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Types.ObjectId
-exports.getAllDoctors = (request, response, next) => {
-  doctorSchema
-    .find({})
+exports.getAllDoctors = async (request, response, next) => {
+
+  let { page, limit } = request.query;
+  if (!page) { page = 1; }
+  if (!limit) { limit = 10; }
+  const skip = (page - 1) * limit;
+  const listOfDoctors = await doctorSchema.find({}).skip(skip).limit(limit)
     .then((data) => {
-      response.status(200).json(data);
-    })
-    .catch((error) => next(error));
+
+      const all = doctorSchema.count(); //look
+      const totalPages = Math.ceil(all / parseInt(limit));
+      response.status(200).json(data, totalPages, page, limit);
+    }).catch((error) => next(error));
+  return listOfDoctors
 };
+
+
 exports.getDoctorById = (request, response, next) => {
   doctorSchema
     .find({ _id: new ObjectId(request.params.id) })

@@ -4,8 +4,6 @@ import { IDoctor } from '../service/IDoctor';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DoctorService } from '../services/doctor.service';
 
-
-
 interface City {
   name: string;
   code: string;
@@ -13,78 +11,77 @@ interface City {
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
- tap=1;
- countries = [
-  { name: 'Australia', code: 'AU' },
-  { name: 'Brazil', code: 'BR' },
-  { name: 'China', code: 'CN' },
-  { name: 'Egypt', code: 'EG' },
-  { name: 'France', code: 'FR' },
-  { name: 'Germany', code: 'DE' },
-  { name: 'India', code: 'IN' },
-  { name: 'Japan', code: 'JP' },
-  { name: 'Spain', code: 'ES' },
-  { name: 'United States', code: 'US' }
-];
+  tap = 1;
+  countries = [
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' },
+  ];
 
- selectedCountry: string | undefined;
+  selectedCountry: string | undefined;
 
- cities: City[] | undefined;
- 
+  cities: City[] | undefined;
 
- selectedCity: City | undefined;
-//  ngOnInit() {
-//      this.cities = [
-//          { name: 'New York', code: 'NY' },
-//          { name: 'Rome', code: 'RM' },
-//          { name: 'London', code: 'LDN' },
-//          { name: 'Istanbul', code: 'IST' },
-//          { name: 'Paris', code: 'PRS' }
-//      ];
-//  }
+  selectedCity: City | undefined;
+  //  ngOnInit() {
+  //      this.cities = [
+  //          { name: 'New York', code: 'NY' },
+  //          { name: 'Rome', code: 'RM' },
+  //          { name: 'London', code: 'LDN' },
+  //          { name: 'Istanbul', code: 'IST' },
+  //          { name: 'Paris', code: 'PRS' }
+  //      ];
+  //  }
 
- doctors: IDoctor[] = [];
- listDoctors: IDoctor[] = [];
- selectedDoctors ={
-  name:'',
-  title:'',
-  price:'',
- };
- selectedName!:string;
- selectedTitle!:string;
- selectedPrice!:number;
+  doctors: IDoctor[] = [];
+  listDoctors: IDoctor[] = [];
+  selectedDoctors = {
+    name: '',
+    title: '',
+    price: '',
+  };
+  selectedName!: string;
+  selectedTitle!: string;
+  selectedPrice!: number;
   errorMessage: any;
   constructor(private doctorService: DoctorService, private router: Router) {}
   ngOnInit(): void {
-  this.getListDoctors();  
+    this.getListDoctors();
   }
-  searchDoctors(){
-    let params ={
-      name:this?.selectedName? this.selectedName  :'' ,
-      title:this?.selectedTitle ? this?.selectedTitle  :'' ,
-      price:this?.selectedPrice ? this?.selectedPrice  :'' ,
-    }
-    
+  searchDoctors() {
+    let params = {
+      name: this?.selectedName ? this.selectedName : '',
+      title: this?.selectedTitle ? this?.selectedTitle : '',
+      price: this?.selectedPrice ? this?.selectedPrice : '',
+    };
+    console.log(params);
+
     this.doctorService.searchDoctors(params).subscribe({
       next: (doctors) => {
         this.doctors = doctors;
         console.log(this.doctors);
-        
       },
       error: (error) => (this.errorMessage = error),
     });
-
   }
+  goToDoctor(_id: any) {
+    console.log(`/${_id}`);
 
-getListDoctors(){
-  this.doctorService.getDoctors().subscribe(res =>{
-this.listDoctors=res;
-  })
+    this.router.navigate([`/${_id}`]);
+  }
+  getListDoctors() {
+    this.doctorService.getDoctors().subscribe((res) => {
+      this.listDoctors = res;
+    });
+  }
 }
-  
-}
-
-

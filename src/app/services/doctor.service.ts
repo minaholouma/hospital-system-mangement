@@ -14,13 +14,17 @@ import { catchError } from 'rxjs/operators';
 export class DoctorService {
   _url = 'https://asd-6gr1.onrender.com/doctors';
   constructor(private http: HttpClient) {}
-  searchDoctors(
-   paylodParams:any
-  ): Observable<IDoctor[]> {
+  searchDoctors(paylodParams: any): Observable<IDoctor[]> {
     let params = new HttpParams();
-    paylodParams.name ? params = params.append('name', paylodParams.name):'';
-    paylodParams.title ?params = params.append('title', paylodParams.title):'';
-    paylodParams.price ? params = params.append('price', paylodParams.price):'';
+    paylodParams.name
+      ? (params = params.append('name', paylodParams.name))
+      : '';
+    paylodParams.title
+      ? (params = params.append('title', paylodParams.title))
+      : '';
+    paylodParams.price
+      ? (params = params.append('price', paylodParams.price))
+      : '';
 
     return this.http
       .get<IDoctor[]>('http://localhost:3000/doctors/search', { params })

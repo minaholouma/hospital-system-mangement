@@ -1,10 +1,20 @@
 const treatmentSchema = require("./../model/treatmentModel");
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Types.ObjectId
-exports.getAllTreatments = (request, response, next) => {
+exports.getAllTreatments = async (request, response, next) => {
   treatmentSchema
-    .find({})
+  let { page, limit } = request.query;
+  if (!page) { page = 1; }
+  if (!limit) { limit = 10; }
+  const skip = (page - 1) * limit;
+  const listOfTreatment = await treatmentSchema.find({}).skip(skip).limit(limit)
+
     .then((data) => {
+      const all = treatmentSchema.count(); //look
+      const totalPages = Math.ceil(all / parseInt(limit));
+      response.status(200).json(data, totalPages, page, limit);
+
+
       response.status(200).json(data);
     })
     .catch((error) => next(error));
@@ -17,7 +27,7 @@ exports.getTreatmentById = (request, response, next) => {
     })
     .catch((error) => next(error));
 };
-exports.searchTreatment = (request, response, next) => {
+exports.treatmentSchema = (request, response, next) => {
   const name = request.query.name ?? ''
   const price = request.query.price ?? ''
   let regexPrice;

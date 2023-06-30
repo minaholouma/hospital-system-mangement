@@ -1,22 +1,22 @@
-   <!--start searc bar -->
-   <app-search-bar></app-search-bar>
-   <!--end searc bar -->
+<!--start searc bar -->
+<app-search-bar></app-search-bar>
+<!--end searc bar -->
 
-   <div>
-      <img src="{{doctorDetails?.image}}" alt="image" class="doctorimg" >
+<div>
+   <img [src]="doctorDetails.image?doctorDetails.image:''" alt="image" class="doctorimg">
+</div>
+<!-- image cover  -->
+<div class="pharmacy-shop">
+   <div class="text-phar">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
    </div>
-   <!-- image cover  -->
-   <div class="pharmacy-shop"> 
-      <div class="text-phar">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>  
-  </div>
+</div>
 
 
-  
-   <!-- {{doctorDetails|json}} -->
-   <div>
-      <h1>{{doctorDetails.name}}</h1>
-   </div>
+
+<!-- {{doctorDetails|json}} -->
+<div>
+   <h1>{{doctorDetails.name}}</h1>
+</div>

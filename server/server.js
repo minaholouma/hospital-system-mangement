@@ -34,7 +34,7 @@ mongoose
   .then(() => {
     console.log("DataBase connected");
     server.listen(port, () => {
-      console.log("I'm waiting to any order");
+      console.log("I'm waiting to any order", port);
     });
   })
   .catch((error) => {
