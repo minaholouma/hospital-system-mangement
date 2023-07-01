@@ -28,6 +28,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorCarouselComponent } from './doctor-carousel/doctor-carousel.component';
 import { IDoctor } from './service/IDoctor';
+import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { IDoctor } from './service/IDoctor';
     SearchBarComponent,
     DoctorDetailsComponent,
     DoctorCarouselComponent,
+    ViewDoctorComponent,
     
 
   ],  

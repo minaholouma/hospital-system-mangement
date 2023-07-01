@@ -36,8 +36,9 @@ export class DoctorService {
       .pipe(catchError(this.handleError));
   }
   getDoctorById(doctorId: String): Observable<IDoctor> {
-    const url = `${(this._url =
-      'https://asd-6gr1.onrender.com/doctors')}/${doctorId}`;
+    console.log(doctorId);
+
+    const url = `https://asd-6gr1.onrender.com/doctors/${doctorId}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse) {
