@@ -10,7 +10,7 @@ exports.getAllDoctors = async (request, response, next) => {
   const listOfDoctors = await doctorSchema.find({}).skip(skip).limit(limit)
     .then((data) => {
 
-      const all = doctorSchema.count(); //look
+      const all = doctorSchema.count();
       const totalPages = Math.ceil(all / parseInt(limit));
       response.status(200).json(data, totalPages, page, limit);
     }).catch((error) => next(error));

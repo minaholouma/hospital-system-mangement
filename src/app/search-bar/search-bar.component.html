@@ -93,9 +93,8 @@
 
 <div *ngFor=" let doctor of doctors" class="card-body">
   <div (click)="goToDoctor(doctor._id)">
-    <h2 class="card-title"><a routerLink='/view-Doctor/{{doctor._id}}'>{{doctor.name}}</a></h2>
+    <h2 class="card-title"><a routerLink='/DoctorDetails/{{doctor._id}}'>{{doctor.name}}</a></h2>
     <h5 class="card-text">
     </h5>
   </div>
-
 </div>

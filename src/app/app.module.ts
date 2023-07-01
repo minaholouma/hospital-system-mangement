@@ -28,8 +28,6 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorCarouselComponent } from './doctor-carousel/doctor-carousel.component';
 import { IDoctor } from './service/IDoctor';
-import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
-
 
 @NgModule({
   declarations: [
@@ -50,14 +48,8 @@ import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
     SearchBarComponent,
     DoctorDetailsComponent,
     DoctorCarouselComponent,
-    ViewDoctorComponent,
-    
-
-  ],  
-  schemas:[
-    CUSTOM_ELEMENTS_SCHEMA
   ],
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
   imports: [
     BrowserModule,
@@ -65,18 +57,17 @@ import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    TabViewModule ,
-    DropdownModule ,
+    TabViewModule,
+    DropdownModule,
     BrowserAnimationsModule,
     InputTextModule,
     CarouselModule,
-    InputTextModule ,
+    InputTextModule,
     ButtonModule,
     OverlayPanelModule,
     NgxStarRatingModule,
-    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
