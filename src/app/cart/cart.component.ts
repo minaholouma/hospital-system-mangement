@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
   constructor() {}
+
   cartProduct : any[]= [];
   total:any=0
   ngOnInit(): void {
@@ -59,5 +60,9 @@ getCartTotal()
     this.total += parseFloat(this.cartProduct[x].item.price) * parseFloat(this.cartProduct[x].quantity)
 
   }
+}
+calculateTotalPrice(price: string, quantity: string): string {
+  const totalPrice = parseFloat(price) * parseInt(quantity);
+  return totalPrice.toString();
 }
 }
