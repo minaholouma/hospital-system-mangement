@@ -11,6 +11,7 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorCarouselComponent } from './doctor-carousel/doctor-carousel.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'doctors', component: DoctorsComponent },
   { path: 'Pharmacy', component: PharmacyComponent },
+  {path:'cart',component:CartComponent},
   { path: 'DoctorDetails/:id', component: DoctorDetailsComponent },
   { path: 'DoctorCarousel', component: DoctorCarouselComponent },
   { path: '**', component: NotFoundError },

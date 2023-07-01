@@ -28,6 +28,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorCarouselComponent } from './doctor-carousel/doctor-carousel.component';
 import { IDoctor } from './service/IDoctor';
+import { PaginatorModule } from 'primeng/paginator';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { IDoctor } from './service/IDoctor';
     SearchBarComponent,
     DoctorDetailsComponent,
     DoctorCarouselComponent,
+    CartComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -66,6 +69,8 @@ import { IDoctor } from './service/IDoctor';
     ButtonModule,
     OverlayPanelModule,
     NgxStarRatingModule,
+    PaginatorModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
