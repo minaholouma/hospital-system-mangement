@@ -2,33 +2,31 @@
 <app-search-bar (event)="onDoctorChange($event)"></app-search-bar>
 <!--end searc bar -->
 <div *ngIf="!isLoad">
-   <div>
-      <img [src]="doctorDetails.image?doctorDetails.image:''" alt="image" class="doctorimg">
-   </div>
-   <!-- image cover  -->
-   <div class="pharmacy-shop">
+</div>
+<!-- image cover  -->
+<!-- <div class="pharmacy-shop">
       <div class="text-phar">
          <h5 class="card-title">Special title treatment</h5>
          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
          <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+      </div> -->
 
-      <!-- image cover  -->
-      <div class="pharmacy-shop">
-         <div class="text-phar">
-            <h1 class="card-title">{{doctorDetails.name}}</h1>
-            <h3 class="card-text">{{doctorDetails.title}}</h3>
-            <h4 class="card-text">{{doctorDetails.location}}</h4>
-         </div>
-         <div>
-            <img [src]="doctorDetails.image?doctorDetails.image:''" alt="image" class="doctorimg">
+<!-- image cover  -->
+<div class="pharmacy-shop">
+   <div class="text-phar">
+      <h1 class="card-title">{{doctorDetails.name}}</h1>
+      <h3 class="card-text">{{doctorDetails.title}}</h3>
+      <h4 class="card-text">{{doctorDetails.location}}</h4>
+   </div>
+   <div>
+      <img [src]="doctorDetails.image?doctorDetails.image:''" alt="image" class="doctorimg">
+   </div>
+</div>
 
-         </div>
 
 
-
-         <!-- {{doctorDetails|json}} -->
-         <!-- <div class="about-doctor">
+<!-- {{doctorDetails|json}} -->
+<!-- <div class="about-doctor">
    <div class="name">
       <h3 class="about">معلومات عن الدكتور</h3>
       <h3>{{doctorDetails.about}}</h3>
@@ -47,26 +45,26 @@
 
 
 
-         <div class="card">
-            <p-fieldset>
-               <ng-template pTemplate="header">
-                  <div class="flex align-items-center text-primary">
-                     <span class="pi pi-user mr-2"></span>
-                     <span class="font-bold text-lg">User Details</span>
-                  </div>
-               </ng-template>
-               <div class="name">
-                  <h3 class="about">معلومات عن الدكتور</h3>
-                  <h3>{{doctorDetails.about}}</h3>
-                  <h3>{{doctorDetails.clinicName}}</h3>
-                  <h4>{{doctorDetails.location}}</h4>
-               </div>
-            </p-fieldset>
+<div class="card">
+   <p-fieldset>
+      <ng-template pTemplate="header">
+         <div class="flex align-items-center text-primary">
+            <span class="pi pi-user mr-2"></span>
+            <span class="font-bold text-lg">User Details</span>
          </div>
-         <br>
-         <div class="price">
-            <h3 class="book-details"><i class="pi pi-book"></i> معلومات الحجز </h3>
-            <h3><i class="pi pi-clock"></i> مده الإنتظار {{doctorDetails.waitingTime}}</h3>
-            <h3> سعر الكشف {{doctorDetails.price}}</h3>
-            <h3><i class="pi pi-phone"></i> للحجز {{doctorDetails.phone}}</h3>
-         </div>
+      </ng-template>
+      <div class="name">
+         <h3 class="about">معلومات عن الدكتور</h3>
+         <h3>{{doctorDetails.about}}</h3>
+         <h3>{{doctorDetails.clinicName}}</h3>
+         <h4>{{doctorDetails.location}}</h4>
+      </div>
+   </p-fieldset>
+</div>
+<br>
+<div class="price">
+   <h3 class="book-details"><i class="pi pi-book"></i> معلومات الحجز </h3>
+   <h3><i class="pi pi-clock"></i> مده الإنتظار {{doctorDetails.waitingTime}}</h3>
+   <h3> سعر الكشف {{doctorDetails.price}}</h3>
+   <h3><i class="pi pi-phone"></i> للحجز {{doctorDetails.phone}}</h3>
+</div>

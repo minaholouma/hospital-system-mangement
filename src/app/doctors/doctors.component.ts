@@ -8,6 +8,7 @@ import { DoctorService } from '../service/doctor.service';
 })
 export class DoctorsComponent {
   doctors: any[] = [];
+page: string|number|undefined;
 
   constructor(private serviceDoctor: DoctorService) {
     serviceDoctor.returnData().subscribe((data) => (this.doctors = data));
