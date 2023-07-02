@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDoctor } from '../service/IDoctor';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { DoctorService } from '../services/doctor.service';
+import { DoctorService } from '../service/doctor.service';
 
 interface City {
   name: string;
@@ -27,7 +26,7 @@ export class SearchBarComponent implements OnInit {
     { name: 'Spain', code: 'ES' },
     { name: 'United States', code: 'US' },
   ];
-
+  @Output() event: EventEmitter<any> = new EventEmitter();
   selectedCountry: string | undefined;
 
   cities: City[] | undefined;
@@ -76,8 +75,8 @@ export class SearchBarComponent implements OnInit {
   }
   goToDoctor(_id: any) {
     console.log(`/${_id}`);
-
-    this.router.navigate([`/${_id}`]);
+    this.event.emit(_id);
+    this.router.navigate(['DoctorDetails', `${_id}`]);
   }
   getListDoctors() {
     this.doctorService.getDoctors().subscribe((res) => {

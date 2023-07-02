@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DoctorService } from '../services/doctor.service';
 import { IDoctor } from '../service/IDoctor';
-import { map } from 'rxjs';
+import { DoctorService } from '../service/doctor.service';
 @Component({
   selector: 'app-doctor-details',
   templateUrl: './doctor-details.component.html',
@@ -12,23 +11,26 @@ export class DoctorDetailsComponent {
   data: any;
   id: String = '';
   doctorDetails!: IDoctor;
+  isLoad: boolean = true;
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _doctorSirvice: DoctorService
   ) {
-    _ActivatedRoute.paramMap.subscribe((p: any) => {
-      this.id = p.get('id');
-    });
-    console.log(this.id.toString());
-  }
-  ngOnInit(): void {
     this.id = this._ActivatedRoute.snapshot.params['id'];
-    this.id ? this.getDoctorDidels() : '';
+  }
+  onDoctorChange(event: any) {
+    this.getDoctor(event);
   }
 
-  getDoctorDidels() {
-    this._doctorSirvice.getDoctorById(this.id).subscribe((res: any) => {
+  ngOnInit(): void {
+    if (this.id) {
+      this.getDoctor(this.id);
+    }
+  }
+  getDoctor(id: any) {
+    this._doctorSirvice.getDoctorById(id).subscribe((res: any) => {
       this.doctorDetails = res[0];
+      this.isLoad = false;
     });
   }
 }

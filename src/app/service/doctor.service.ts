@@ -14,6 +14,9 @@ import { catchError } from 'rxjs/operators';
 export class DoctorService {
   _url = 'https://asd-6gr1.onrender.com/doctors';
   constructor(private http: HttpClient) {}
+  returnData(): Observable<any> {
+    return this.http.get(`https://asd-6gr1.onrender.com/doctors`);
+  }
   searchDoctors(paylodParams: any): Observable<IDoctor[]> {
     let params = new HttpParams();
     paylodParams.name
@@ -36,8 +39,6 @@ export class DoctorService {
       .pipe(catchError(this.handleError));
   }
   getDoctorById(doctorId: String): Observable<IDoctor> {
-    console.log(doctorId);
-
     const url = `https://asd-6gr1.onrender.com/doctors/${doctorId}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError));
   }

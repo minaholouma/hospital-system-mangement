@@ -16,7 +16,6 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { TreatmentComponent } from './treatment/treatment.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,11 +24,13 @@ import { CarouselModule } from 'primeng/carousel';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ButtonModule } from 'primeng/button';
 import { NgxStarRatingModule } from 'ngx-star-rating';
-import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { DoctorCarouselComponent } from './doctor-carousel/doctor-carousel.component';
-import { IDoctor } from './service/IDoctor';
 import { PaginatorModule } from 'primeng/paginator';
 import { CartComponent } from './cart/cart.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 @NgModule({
   declarations: [
@@ -42,18 +43,17 @@ import { CartComponent } from './cart/cart.component';
     AboutComponent,
     ContactsComponent,
     DoctorComponent,
-    SearchBarComponent,
     DoctorsComponent,
     PharmacyComponent,
     DoctorComponent,
     TreatmentComponent,
-    SearchBarComponent,
     DoctorDetailsComponent,
     DoctorCarouselComponent,
     CartComponent,
+    PaginationComponent,
+    SearchBarComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -69,8 +69,8 @@ import { CartComponent } from './cart/cart.component';
     ButtonModule,
     OverlayPanelModule,
     NgxStarRatingModule,
-    PaginatorModule
-    
+    PaginatorModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
