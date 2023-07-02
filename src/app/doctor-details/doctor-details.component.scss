@@ -1,20 +1,19 @@
 .pharmacy-shop{
-    border: #3fbbc0 solid;
+    border: gainsboro solid;
     display: flex;
       justify-content: center;
       align-items:center ;
       justify-content: space-between;
       border-radius: 10px;
-      background-color: #228cd2;
-      color: #fff;
-      height: 400px;
+      background-color:white;
+      height: 300px;
       background-size: cover;
       margin-bottom: 20px;
   
   }
   
   .text-phar{
-    // direction:rtl;
+  direction:rtl;
   width: 45%;
   margin-top: -5%;
   margin-left: 10px;
@@ -23,10 +22,14 @@
   .text-phar .card-title{
     margin-left: 10px;
     padding-bottom: 15px;
+    color:blue;
+    
   }
   
-  .text-phar .card-text{
+  .card-text{
     margin-left: 10px;
+    color: rgb(87, 8, 8);
+
   }
   .text-phar .btn{
     margin-left: 10px;
@@ -35,5 +38,39 @@
 
   .doctorimg{
     width: 60%;
-    height: 300px;
+    height: 250px;
+    border-radius: 10px;
   }
+  .about-doctor{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    justify-content: space-between;
+  }
+  .about{
+    background-color: rgb(27, 95, 205);
+    text-align: center;
+    color: aliceblue;
+  }
+  .about-doctor .name{
+    direction: rtl;
+    width: 45%;
+  }
+  .price{
+    width: 45%;
+    margin:auto;
+    text-align: center;
+
+  }
+  .book-details{
+    background-color: rgb(27, 95, 205);
+    text-align: center;
+    color: aliceblue;
+  }
+.card{
+  direction: rtl;
+}
+
+// ----------------------------------------------------------------------------

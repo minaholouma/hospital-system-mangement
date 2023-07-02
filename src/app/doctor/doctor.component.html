@@ -1,24 +1,14 @@
-<div class="card h-doctor mb-1">
+<!-- <div class="card h-doctor mb-1">
     <div class="content">
       <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
         <img src="{{data.image}}" class="card-img img-fluid rounded-circle " />
-        <!-- <a href="#!">
-          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-        </a> -->
       </div>
       <div class="card-body">
         <h2 class="card-title"><a>{{data.name}}</a></h2>
         <h5 class="card-text">
           {{data.title}}
          </h5>
-        <!-- <p class="mb-2">{{data.rate}}</p> -->
         <ngx-star-rating [id]="'rating'"></ngx-star-rating>
-
-        
-        
-        <!-- <hr class="my-4" />
-        <p class="lead badge bg-primary text-wrap"><strong>الموقع بالتحديد</strong></p>
-        <div class="mb-2">{{data.location}}</div>  -->
       </div>
     </div>
   </div>
@@ -26,6 +16,29 @@
     <a [routerLink]="['/DoctorDetails',data._id]" class="btn btn-outline-success  m-1">show more details</a>
   </div>
 
-  
+   -->
 
+
+<div class="container py-3 ">
+  <!-- Card Start -->
+  <div class="card hov pulse">
+    <div class="row ">
+
+      <div class="col-md-7 px-3 direction">
+        <div class="card-block px-6">
+          <h3 class="card-title">{{data.name}}</h3>
+          <p class="card-text">
+            {{data.about}}
+          </p>
+          <p class="card-loc"><i class="fa-solid fa-location-dot"></i>{{data.location}}</p>
+          <br>
+          <a [routerLink]="['/DoctorDetails',data._id]" class="btn btn-outline-success  m-1">show more details</a>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <img style="object-fit:contain;  height:300px;" class="w-100" src="{{data.image}}" alt="doctor_image">
+      </div>
+    </div>
+  </div>
+  <!-- End of card -->
 
