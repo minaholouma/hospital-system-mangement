@@ -8,16 +8,13 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
-        </div>
+        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)"></div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
-        </div>
+        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)"></div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
-        </div>
+        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)"></div>
       </div>
 
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
@@ -112,14 +109,14 @@
                 <img src="{{ product.image }}" [alt]="product.name" class="treatimg w-6 shadow-2" />
               </div>
               <div>
-                <h4 class="treatname mb-1">{{ product.name }}</h4>
-                <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6>
+                <a routerLink="/Pharmacy"><h5 class="treatname mb-1">{{ product.name }}</h5></a>
+                <h6 class="mt-0 mb-3">{{ product.price}}</h6>
                 <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag>
-                <div class="car-buttons mt-5">
+                <!-- <div class="car-buttons mt-5">
                   <p-button type="button" styleClass="p-button p-button-rounded mr-2" icon="pi pi-search"></p-button>
                   <p-button type="button" styleClass="p-button-success p-button-rounded mr-2"
                     icon="pi pi-star-fill"></p-button>
-                </div>
+                </div> -->
               </div>
             </div>
           </ng-template>
@@ -138,6 +135,8 @@
 
         </div>
       </section><!-- End Cta Section -->
+
+    
       <!-- start footer -->
       <app-footer></app-footer>
       <!-- end footer -->

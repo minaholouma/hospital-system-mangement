@@ -8,6 +8,7 @@ import { PharmacyServiceService } from '../service/pharmacy-service.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  
   // filteredLocationList: HousingLocation[] = [];
   show: boolean = true;
   hidden: boolean = false;
@@ -67,4 +68,8 @@ products: any;
         return null
     }
 
+
+
+
+  
 }

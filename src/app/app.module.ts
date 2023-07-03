@@ -7,8 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactsComponent } from './contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +39,6 @@ import { DoctorDetailsComponent } from './doctor-details/doctor-details.componen
     FooterComponent,
     NavComponent,
     HomeComponent,
-    AboutComponent,
-    ContactsComponent,
     DoctorComponent,
     DoctorsComponent,
     PharmacyComponent,
