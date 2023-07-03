@@ -1,0 +1,14 @@
+@media only screen and (max-width: 992px) {
+  .navlink {
+   display: block;
+  }
+}
+
+.baricon {
+   display: none;
+  }
+@media only screen and (max-width: 991px) {
+  .baricon {
+   display: block;
+  }
+}
