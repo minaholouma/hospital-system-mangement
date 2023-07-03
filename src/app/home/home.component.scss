@@ -374,39 +374,6 @@
 
 
 
-  // # About Us
-  
-  .about .content h3 {
-    font-weight: 600;
-    font-size: 26px;
-  }
-  
-  .about .content ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .about .content ul li {
-    padding-bottom: 10px;
-  }
-  
-  .about .content ul i {
-    font-size: 20px;
-    padding-right: 4px;
-    color: #3fbbc0;
-  }
-  
-  .about .content p:last-child {
-    margin-bottom: 0;
-  }
-.show
-{
-  border-radius: 10px;
-  background-color: #3fbbc0;
-  color: #fff;
-  padding: 5px 10px;
-  border:3px #fff solid !important;
-}
   // treat carousel-----------------------------------
 .treatimg{
   margin-bottom: 3px;
@@ -486,6 +453,7 @@
     justify-content: space-between;
     border-radius: 10px;
     background-image:url('https://images.unsplash.com/photo-1573883431205-98b5f10aaedb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    background-attachment: fixed;
     color: #fff;
     height: 300px;
     background-size: cover;
@@ -514,5 +482,27 @@ margin-left: 10px;
 
   
 
+// scroll---------------
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display:flex; /* Hide the button by default */
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.scroll-to-top:hover {
+  background-color: #0056b3;
+}
+
+/* Show the button when the user scrolls beyond the threshold value */
+.show-scroll-to-top {
+  display: block;
+}
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { PharmacyServiceService } from '../service/pharmacy-service.service';
 
@@ -69,7 +69,21 @@ products: any;
     }
 
 
+// ---------------
+private scrollThreshold = 300;
 
+  // Show/hide the "scroll to top" button based on the user's scrolling position
+  public showScrollToTop = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showScrollToTop = window.pageYOffset > this.scrollThreshold;
+  }
+
+  // Scroll to the top of the page when the button is clicked
+  public scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   
 }

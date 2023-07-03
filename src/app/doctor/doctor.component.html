@@ -30,13 +30,13 @@
           <p class="card-text">
             {{data.about}}
           </p>
-          <p class="card-loc"><i class="fa-solid fa-location-dot"></i>{{data.location}}</p>
+          <h5 class="card-loc"><i class="fa-solid fa-location-dot"></i> {{data.location}}</h5>
           <br>
           <a [routerLink]="['/DoctorDetails',data._id]" class="btn btn-outline-success  m-1">show more details</a>
         </div>
       </div>
       <div class="col-md-5">
-        <img style="object-fit:contain;  height:300px;" class="w-100" src="{{data.image}}" alt="doctor_image">
+        <img style="object-fit:contain; border-radius:10px; height:250px;" class="w-100" src="{{data.image}}" alt="doctor_image">
       </div>
     </div>
   </div>

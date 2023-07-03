@@ -17,6 +17,7 @@ export class RegisterComponent  {
     age: new FormControl(null,[Validators.required,Validators.min(20),Validators.max(80)]),
   })
 errors:any ='';
+  router: any;
 
   constructor(public _AuthService:AuthService ,private Router:Router){}
   ngOnInit(): void {}
@@ -27,32 +28,23 @@ errors:any ='';
 get last_name(): any {
   return this.registerForm.get('last_name');
 }
-  submit(registerForm:FormGroup){
-    this.registerForm.markAllAsTouched()
-    console.log(registerForm.value);
-    if(registerForm.valid){
-      this._AuthService.register(registerForm.value).subscribe((Response)=>{
-        if (Response.message=='success'){
-          this.Router.navigate(['login'])
-      }
-      else{
-        this.errors = Response.email.error.message;
-      }
-    })
-      
-      
-    }
 
-    // if(this.registerForm.valid){
-    //  this._AuthService.register(this.registerForm.value).subscribe((Response)=>{
-    //   if (Response.message=='success'){
-    //     // alert('Registration Successfull')
-    //   }
-    //   else{
-          
-    //   }
-    //  }) 
-    // }
+
+    submit(registerForm: FormGroup) {
+      registerForm.markAllAsTouched();
+      console.log(registerForm.value);
+    
+      if (registerForm.valid) {
+        this._AuthService.register(registerForm.value).subscribe((Response) => {
+          if (Response.message == 'success') {
+            this.router.navigate(['login']).then(() => {
+              // Optional: You can do something after navigation if needed
+            });
+          } else {
+            this.errors = Response.email.error.message;
+          }
+        });
+      }
   }
 
 }
