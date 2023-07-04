@@ -15,7 +15,8 @@ export class CartComponent {
   constructor(private _Router:Router , private _PaymentService:PaymentService) {}
 
   cartProduct : any[]= [];
-  total:any=0
+  total:any=0;
+  totalOrdersAmount: number = 0;
   ngOnInit(): void {
 
     this.gitCArdProduct()
@@ -31,6 +32,10 @@ export class CartComponent {
  this.getCartTotal()
 }
 minsAmount(index :number){
+  
+  if (this.cartProduct[index].quantity <= 0) {
+    return;
+  }
   this.cartProduct[index].quantity--
   localStorage.setItem("cart" , JSON.stringify(this.cartProduct))
   this.getCartTotal()
@@ -69,11 +74,12 @@ getCartTotal()
 }
 calculateTotalPrice(price: string, quantity: string): string {
   const totalPrice = parseFloat(price) * parseInt(quantity);
+  this.totalOrdersAmount = totalPrice;
   return totalPrice.toString();
 }
 
 redirectToGatway() {
-  this._Router.navigate(['/gateway']);
+  this._Router.navigate(['/gateway'], {queryParams: { totalAmounts: this.totalOrdersAmount}});
 
   const totalAmount :any = '' // Replace with the actual total amount
 

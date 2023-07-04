@@ -6,7 +6,7 @@
                     <img src="{{ product.image }}" [alt]="product.name" class="treatimg w-6 shadow-2" />
                 </div>
                 <div>
-                    <a routerLink="/doctors"><h4 class="treatname mb-1">{{ product.name }}</h4></a>
+                    <a [routerLink]="['/DoctorDetails',product._id]"><h4 class="treatname mb-1">{{ product.name }}</h4></a>
                     <h6 class="mt-0 mb-3">{{ product.price }}</h6>
                     <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag>
                     <!-- <div class="car-buttons mt-5">

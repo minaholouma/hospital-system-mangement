@@ -38,6 +38,12 @@ export class DoctorService {
       .get<IDoctor[]>(this._url)
       .pipe(catchError(this.handleError));
   }
+
+  // function for delete doctors
+  deleteDoctor(doctorId: string): Observable<any> {
+    const url = `https://asd-6gr1.onrender.com/doctors/${doctorId}`;
+    return this.http.delete<any>(url);
+  }
   getDoctorById(doctorId: String): Observable<IDoctor> {
     const url = `https://asd-6gr1.onrender.com/doctors/${doctorId}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError));

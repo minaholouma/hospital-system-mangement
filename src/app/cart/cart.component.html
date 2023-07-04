@@ -24,7 +24,7 @@
           <div class="quantity">
           <button class="btn btn-dark" (change)="detectChange()" (click)="addAmount(index)">+</button>
           <!-- <input type="number" class="form-control" [(ngModel)]="{{item.quantity}}" min="1"> -->
-          <input type="number" class="form-control" [(ngModel)]="item.quantity" min="1">
+          <input type="number" minlength="0" min="0" class="form-control" [(ngModel)]="item.quantity">
 
           <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
         </div>

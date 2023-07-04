@@ -31,6 +31,8 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { GatewayComponent } from './gateway/gateway.component';
+import { DoctorsAdminComponent } from './admin/doctors-admin/doctors-admin.component';
+import { PharmacyAdminComponent } from './admin/pharmacy-admin/pharmacy-admin.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { GatewayComponent } from './gateway/gateway.component';
     PaginationComponent,
     SearchBarComponent,
     GatewayComponent,
+    DoctorsAdminComponent,
+    PharmacyAdminComponent,
     
     
   ],
