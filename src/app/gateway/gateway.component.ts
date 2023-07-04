@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component,OnInit } from '@angular/core';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
@@ -7,6 +8,11 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
   styleUrls: ['./gateway.component.scss']
 })
 export class GatewayComponent implements OnInit {
+  name: string | undefined;
+  phone: string | undefined;
+  address: string | undefined;
+
+
   public payPalConfig?: IPayPalConfig;
   showSuccess: boolean | undefined;
   ngOnInit(): void {
@@ -73,5 +79,25 @@ export class GatewayComponent implements OnInit {
     },
   };
   }
+
+
+  
+
+  constructor(private http: HttpClient) { }
+
+  submitForm() {
+    const data = {
+      name: this.name,
+      phone: this.phone,
+      address: this.address
+    };
+
+    this.http.post('your-server-url', data).subscribe(response => {
+      console.log('Data sent successfully:', response);
+    }, error => {
+      console.error('Error sending data:', error);
+    });
+  }
+
 
 }
