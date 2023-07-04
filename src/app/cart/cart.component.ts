@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { PaymentService } from '../service/payment.service';
+
+
 
 @Component({
   selector: 'app-cart',
@@ -6,7 +10,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  constructor() {}
+
+  
+  constructor(private _Router:Router , private _PaymentService:PaymentService) {}
 
   cartProduct : any[]= [];
   total:any=0
@@ -65,4 +71,26 @@ calculateTotalPrice(price: string, quantity: string): string {
   const totalPrice = parseFloat(price) * parseInt(quantity);
   return totalPrice.toString();
 }
+
+redirectToGatway() {
+  this._Router.navigate(['/gateway']);
+
+  const totalAmount :any = '' // Replace with the actual total amount
+
+    // Call the processPayment method from the PaymentService
+    this._PaymentService.processPayment(totalAmount)
+      .then(response => {
+        // Handle the response from the server-side, such as showing a success message
+        console.log(response);
+      })
+      .catch(error => {
+        // Handle any errors that occurred during payment processing
+        console.error(error);
+      });
+
+}
+
+
+
+
 }

@@ -85,5 +85,4 @@ private scrollThreshold = 300;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  
 }

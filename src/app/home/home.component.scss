@@ -487,7 +487,7 @@ margin-left: 10px;
   position: fixed;
   bottom: 30px;
   right: 30px;
-  display:flex; /* Hide the button by default */
+  display: none; /* Hide the button by default */
   cursor: pointer;
   padding: 10px 15px;
   background-color: #007bff;
@@ -500,9 +500,9 @@ margin-left: 10px;
   background-color: #0056b3;
 }
 
-/* Show the button when the user scrolls beyond the threshold value */
 .show-scroll-to-top {
-  display: block;
+  display:none;
 }
+
 
 

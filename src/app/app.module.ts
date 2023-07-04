@@ -29,6 +29,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { GatewayComponent } from './gateway/gateway.component';
 
 
 @NgModule({
@@ -49,7 +51,11 @@ import { DoctorDetailsComponent } from './doctor-details/doctor-details.componen
     CartComponent,
     PaginationComponent,
     SearchBarComponent,
+    GatewayComponent,
+    
+    
   ],
+  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
@@ -67,7 +73,8 @@ import { DoctorDetailsComponent } from './doctor-details/doctor-details.componen
     OverlayPanelModule,
     NgxStarRatingModule,
     PaginatorModule,
-    NgxPaginationModule,
+    NgxPaginationModule,  
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent],

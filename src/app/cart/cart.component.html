@@ -42,9 +42,10 @@
         <th></th>
         <th></th>
         <th>Total :{{total}}</th>
-        <th><button class="btn btn-success">order Now</button></th>
+        <th><button (click)="redirectToGatway()" class="btn btn-success">order Now</button></th>
       </tr>
     </tfoot>
   </table>
 </div>
 <div class="alert alert-success" role="alert"><strong>Well done!</strong>You order is Successfully send</div>
+
