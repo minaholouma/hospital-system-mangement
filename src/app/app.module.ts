@@ -18,7 +18,6 @@ import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
-import { CarouselModule } from 'primeng/carousel';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ButtonModule } from 'primeng/button';
 import { NgxStarRatingModule } from 'ngx-star-rating';
@@ -33,7 +32,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { GatewayComponent } from './gateway/gateway.component';
 import { DoctorsAdminComponent } from './admin/doctors-admin/doctors-admin.component';
 import { PharmacyAdminComponent } from './admin/pharmacy-admin/pharmacy-admin.component';
-
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [
@@ -56,10 +55,8 @@ import { PharmacyAdminComponent } from './admin/pharmacy-admin/pharmacy-admin.co
     GatewayComponent,
     DoctorsAdminComponent,
     PharmacyAdminComponent,
-    
-    
   ],
-  
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
@@ -77,8 +74,9 @@ import { PharmacyAdminComponent } from './admin/pharmacy-admin/pharmacy-admin.co
     OverlayPanelModule,
     NgxStarRatingModule,
     PaginatorModule,
-    NgxPaginationModule,  
-    NgxPayPalModule
+    NgxPaginationModule,
+    NgxPayPalModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
