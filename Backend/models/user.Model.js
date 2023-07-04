@@ -1,22 +1,19 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const ObjectId = Schema.ObjectId;
-
 const usersSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
-
-    phoneNumber: {
-        type: String,
-        unique: true
-    },
+    // firstName: {
+    //     type: String,
+    //     required: true
+    // },
+    // lastName: {
+    //     type: String,
+    //     required: true
+    // },
+    // phoneNumber: {
+    //     type: String,
+    //     unique: true
+    // },
     password: {
         type: String,
         default: 'abc',
@@ -42,14 +39,20 @@ const usersSchema = new Schema({
         default: true,
 
     },
-    isAdmin: {
-        type: Boolean,
-        default: false,
+    role: {
+        type: String,
+        enum: ['admin', 'user'],
+        default: 'user',
     },
-    token:{
-        type:String
+    cart: {
+        items: {
+            type: []
+        }
+    },
+    token: {
+        type: String
     }
 
 })
 
-module.exports = mongoose.model('user', usersSchema)
+module.exports = mongoose.model('User', usersSchema)

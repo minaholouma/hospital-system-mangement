@@ -1,21 +1,16 @@
 const express = require('express')
 const doctor = require('../models/doctor.Model')
+const verifyToken = require('../middlewares/Auth.middleware')
 const router = express.Router()
 // const jwt = require('jsonwebtoken')
 // get all  
 
-router.get('/', (req, res) => {
-    doctor.find({}, (err, data) => {
-
-        if (!err) {
-            res.status(200).send(data)
-        } else {
-            res.status(400).send(err)
-        }
-    })
+router.get('/', verifyToken, async (req, res) => {
+    const allDoctor = await doctor.find({})
+    res.status(200).json(allDoctor)
 })
 // get
-router.get('/:doctorId', (req, res) => {
+router.get('/:doctorId', async (req, res) => {
 
     const id = req.body._id;
     doctor.findById(id, (err, data) => {
@@ -39,9 +34,9 @@ router.post('/create', async (req, res) => {
         });
         if (!oldDoctor) {
             res.status(409).send('name Already exist ')
-        }else{
-        const newRole = await doctor.create(body)
-        res.status(201).send(newRole)
+        } else {
+            const newRole = await doctor.create(body)
+            res.status(201).send(newRole)
         }
     } catch (error) {
         res.status(400).send(error)
@@ -50,7 +45,7 @@ router.post('/create', async (req, res) => {
 
 })
 //update 
-router.put('/:doctorId', (req, res) => {
+router.put('/:doctorId', async (req, res) => {
     const id = req.params.roleId;
     const body = req.body
     doctor.findByIdAndUpdate(id, {
@@ -66,7 +61,7 @@ router.put('/:doctorId', (req, res) => {
     })
 })
 //remove with 
-router.delete('/:doctorId', (req, res) => {
+router.delete('/:doctorId', async (req, res) => {
     const id = req.params.roleId;
     const body = req.body
     doctor.findOneAndDelete(id, (err, data) => {

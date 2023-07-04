@@ -1,15 +1,18 @@
+const { number } = require('joi')
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const roleSchema = new Schema({
+const treatmentSchema = new Schema({
 
-    name:{
+    name: {
         type: String,
-        unique:true, 
-        enum: ["patient", "admin"],
-        required: true,
-
+    },
+    price: {
+        type: String,
+    },
+    image: {
+        type: String,
     },
 })
 
-module.exports = mongoose.model('role', roleSchema)
+module.exports = mongoose.model('Treatment', treatmentSchema)

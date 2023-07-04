@@ -28,24 +28,23 @@ app.use('/api', routes)
 /***
  * @SERVER_RUN_IN_DB_CONFIG 
  * */
-    //db Connection and config
+//db Connection and config
 
 const mongoose = require('mongoose')
 
-const url = `mongodb+srv://admin:admin@clinic.xddwj.mongodb.net/clinic?retryWrites=true&w=majority`;
-
-    const connectionParams = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-    mongoose.connect(url, connectionParams).then(() => {
-            console.log('Connected to database ')
-            const _PORT = process.env.PORT || 3000;
-            app.listen(_PORT, () => {
-                console.log(`server run on port ${_PORT}`);
-            })
-        })
-        .catch((err) => {
-            console.error(`Error connecting to the database. \n${err}`);
-        })
+const url = process.env.CONEECTION_URL;
+const _PORT = process.env.PORT | 6000
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
+mongoose.connect(url, connectionParams).then(() => {
+    console.log('Connected to database ')
+    app.listen(_PORT, () => {
+        console.log(`server run on port ${_PORT}`);
+    })
+})
+    .catch((err) => {
+        console.error(`Error connecting to the database. \n${err}`);
+    })
 

@@ -7,7 +7,7 @@ const auth = require("../middlewares/Auth.middleware");
 
 // get all  
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     user.find({
         isAdmin: false
     }, (err, data) => {
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     })
 })
 // get
-router.get('/:userId', (req, res) => {
+router.get('/:userId', async (req, res) => {
 
     const id = req.body._id;
     console.log(id)
@@ -48,26 +48,28 @@ router.post('/login', async (req, res) => {
     })
 
     if (isAdmin) {
-
+        console.log(isAdmin);
         // check user password with hashed password stored in the database
         const validPassword = await bcrypt.compare(body.password, isAdmin.password);
         if (validPassword) {
-            if (isAdmin.isAdmin) {
+            if (isAdmin.role === 'admin') {
                 const token = await jwt.sign({
-                        userId: isAdmin._id,
-                        email: body.email
-                    },
+                    userId: isAdmin._id,
+                    email: body.email
+                },
                     process.env.TOKEN_KEY, {
-                        expiresIn: "2h",
-                    }
+                    expiresIn: "2h",
+                }
                 );
                 // save user token
                 isAdmin.token = token;
                 res.status(200).send(isAdmin);
+            } else {
+
+                res.status(401).json({
+                    error: "User does have a premition to this page"
+                });
             }
-            res.status(401).json({
-                error: "User does have a premition to this page"
-            });
 
         } else {
             res.status(400).json({
@@ -85,6 +87,7 @@ router.post('/login', async (req, res) => {
 //add 
 router.post('/register', async (req, res) => {
     try {
+        console.log("asdasdasd");
         const body = req.body
         body.password = await bcrypt.hash(body.password, 10)
         body.email = body.email.toLowerCase();
@@ -125,7 +128,7 @@ router.post('/register', async (req, res) => {
 
 })
 //update 
-router.put('/:userId', (req, res) => {
+router.put('/:userId', async (req, res) => {
     const id = req.params.userId;
     const body = req.body
     user.findByIdAndUpdate(id, {
@@ -142,7 +145,7 @@ router.put('/:userId', (req, res) => {
 })
 
 //remove with 
-router.delete('/:userId', (req, res) => {
+router.delete('/:userId', async (req, res) => {
     const id = req.params.userId;
     const body = req.body
     user.findOneAndDelete(id, (err, data) => {
@@ -156,7 +159,7 @@ router.delete('/:userId', (req, res) => {
     })
 })
 //remove all
-router.delete('/:user', (req, res) => {})
+router.delete('/:user', async (req, res) => { })
 //filter
 
 module.exports = router;

@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const ourservices = require('../models/ourServices')
+const treatment = require('../models/treatment.Model')
 
-router.get('/', function (req, res) {
+router.get('/', async function (req, res) {
 
-    ourservices.find({}, (err, data) => {
+    treatment.find({}, (err, data) => {
         if (err) {
             res.status(400).send(err)
         } else {
@@ -13,13 +13,13 @@ router.get('/', function (req, res) {
     })
 
 })
-router.post('/',function(req,res){
+router.post('/', async function (req, res) {
 
-    ourservices.create(req.body,(err , data)=>{
-        if(err){res.status(400).send(err)}
-        else{res.status(200).send(data)}
+    treatment.create(req.body, (err, data) => {
+        if (err) { res.status(400).send(err) }
+        else { res.status(200).send(data) }
     })
-    
+
 })
 
 module.exports = router
