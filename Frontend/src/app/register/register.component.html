@@ -65,28 +65,28 @@
         </div>
     </div>
     <div class="col-md-5">
-        <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+        <form [formGroup]="registerForm" (ngSubmit)="submit()">
             <div class="formGroup">
                 <div class="form-control" style="border: 1 solid white; border-radius: 17px">
-                    <label for="first_name">First Name </label>
+                    <label for="firstName">First Name </label>
                     <input style="border: 1 solid white; border-radius: 25px ;"
-                        [class.is-invalid]="first_name.invalid &&  first_name.touched" formControlName="first_name"
-                        type="text" class="form-control" name="first_name" id="first_name">
-                    <div *ngIf="first_name?.errors  && first_name?.touched" class="alert alert-danger mt-2 ">
-                        <p *ngIf="first_name?.errors['required']">first name is required</p>
-                        <p *ngIf="first_name?.errors['minlength']">first name minLength is 3</p>
-                        <p *ngIf="first_name?.errors['maxlength']">first name maxLength is 8</p>
+                        [class.is-invalid]="firstName.invalid &&  firstName.touched" formControlName="firstName"
+                        type="text" class="form-control" name="firstName" id="firstName">
+                    <div *ngIf="firstName?.errors  && firstName?.touched" class="alert alert-danger mt-2 ">
+                        <p *ngIf="firstName?.errors['required']">first name is required</p>
+                        <p *ngIf="firstName?.errors['minlength']">first name minLength is 3</p>
+                        <p *ngIf="firstName?.errors['maxlength']">first name maxLength is 8</p>
                     </div>
                 </div>
                 <div class="form-control" style="border: 1 solid white; border-radius: 17px">
-                    <label for="last_name">Last Name </label>
+                    <label for="lastName">Last Name </label>
                     <input style="border: 1 solid white; border-radius: 25px"
-                        [class.is-invalid]="last_name.invalid && last_name.touched" formControlName="last_name"
-                        type="text" class="form-control" name="last_name" id="last_name">
-                    <div *ngIf="last_name.invalid && last_name.touched" class="alert alert-danger mt-2 ">
-                        <p *ngIf="last_name.errors?.['required']">last name is required</p>
-                        <p *ngIf="last_name.errors?.['minlength']">last name minLength is 3</p>
-                        <p *ngIf="last_name.errors?.['maxlength']">last name maxLength is 8</p>
+                        [class.is-invalid]="lastName.invalid && lastName.touched" formControlName="lastName" type="text"
+                        class="form-control" name="lastName" id="lastName">
+                    <div *ngIf="lastName.invalid && lastName.touched" class="alert alert-danger mt-2 ">
+                        <p *ngIf="lastName.errors?.['required']">last name is required</p>
+                        <p *ngIf="lastName.errors?.['minlength']">last name minLength is 3</p>
+                        <p *ngIf="lastName.errors?.['maxlength']">last name maxLength is 8</p>
                     </div>
                 </div>
 
@@ -106,8 +106,14 @@
 
                 <div class="form-control" style="border: 1 solid white; border-radius: 17px">
                     <label for="age">Age </label>
-                    <input style="border: 1 solid white; border-radius: 25px" formControlName="Age"
-                        type="Age " class="form-control" name="Age" id="Age">
+                    <input type="text" style="border: 1 solid white; border-radius: 25px" formControlName="age"
+                        class="form-control" name="Age" id="Age">
+                </div>
+
+                <div class="form-control" style="border: 1 solid white; border-radius: 17px">
+                    <label for="phoneNumber">Phone Number </label>
+                    <input style="border: 1 solid white; border-radius: 25px" formControlName="phoneNumber"
+                        type="number " class="form-control" name="phoneNumber" id="phoneNumber">
                 </div>
             </div>
             <button style="margin-top: 2vh;  border: 1 solid white; border-radius: 17px" pButton pRipple

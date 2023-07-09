@@ -1,41 +1,66 @@
-import { Component} from '@angular/core';
-import { FormControl,FormGroup, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent  {
-  registerForm:FormGroup= new FormGroup({
-    first_name: new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(8)]),
-    last_name: new FormControl(null,[Validators.required,Validators.minLength(3),Validators.maxLength(8)]),
-    email: new FormControl(null,[Validators.required,Validators.email]),
-    password: new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(12)]),
-    age: new FormControl(null,[Validators.required,Validators.min(20),Validators.max(80)]),
-  })
-errors:any ='';
+export class RegisterComponent {
+  registerForm: FormGroup = new FormGroup({
+    firstName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(8),
+    ]),
+    lastName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(15),
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(12),
+    ]),
+    age: new FormControl('', [
+      Validators.required,
+      Validators.min(20),
+      Validators.max(80),
+    ]),
+    phoneNumber: new FormControl('', [
+      Validators.required,
+      // Validators.min(11),
+      // Validators.max(14),
+      // Validators.pattern('^[0-9]'),
+    ]),
+  });
+  errors: any = '';
   router: any;
 
-  constructor(public _AuthService:AuthService ,private Router:Router){}
+  constructor(public _AuthService: AuthService, private Router: Router) {}
   ngOnInit(): void {}
 
-  get first_name(): any {
-    return this.registerForm.get('first_name');
-} 
-get last_name(): any {
-  return this.registerForm.get('last_name');
-}
+  get firstName(): any {
+    return this.registerForm.get('firstName');
+  }
+  get lastName(): any {
+    return this.registerForm.get('lastName');
+  }
 
+  submit() {
+    debugger;
+    this.registerForm.markAllAsTouched();
 
-    submit(registerForm: FormGroup) {
-      registerForm.markAllAsTouched();
-      console.log(registerForm.value);
-    
-      if (registerForm.valid) {
-        this._AuthService.register(registerForm.value).subscribe((Response) => {
+    if (this.registerForm.valid) {
+      this._AuthService
+        .register(this.registerForm.value)
+        .subscribe((Response) => {
+          console.log(Response);
+
           if (Response.message == 'success') {
             this.router.navigate(['login']).then(() => {
               // Optional: You can do something after navigation if needed
@@ -44,7 +69,6 @@ get last_name(): any {
             this.errors = Response.email.error.message;
           }
         });
-      }
+    }
   }
-
 }
