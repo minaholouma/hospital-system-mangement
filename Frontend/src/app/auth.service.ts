@@ -16,10 +16,10 @@ export class AuthService {
 
   constructor(private _HTTP: HttpClient) {}
   register(formdata: any): Observable<any> {
-    return this._HTTP.post(`localhost:8184/api/user/register`, formdata);
+    return this._HTTP.post(`localhost:3000/api/user/register`, formdata);
   }
 
   login(formdata: any): Observable<any> {
-    return this._HTTP.post(`localhost:8184/api/user/login`, formdata);
+    return this._HTTP.post(`localhost:3000/api/user/login`, formdata);
   }
 }

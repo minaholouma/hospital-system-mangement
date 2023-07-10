@@ -29,18 +29,20 @@ export class LoginComponent {
   get password(): any {
     return this.loginForm.get('password');
   }
-  submit(loginForm: FormGroup) {
+  submit() {
     this.loginForm.markAllAsTouched();
-    console.log(loginForm.value);
-    if (loginForm.valid) {
-      this._AuthService.register(loginForm.value).subscribe((Response) => {
-        if (Response.message == 'success') {
+    console.log(this.loginForm.value);
+    if (this.loginForm.valid) {
+      this._AuthService.login(this.loginForm.value).subscribe((Response) => {
+        console.log(Response);
+        
+        // if (Response.message == 'success') {
           localStorage.setItem('usertoken', Response.token);
           this._AuthService.saveuserdata();
           this.Router.navigate(['home']);
-        } else {
-          this.errors = Response.email.error.message;
-        }
+        // } else {
+        //   this.errors = Response.email.error.message;
+        // }
       });
     }
   }

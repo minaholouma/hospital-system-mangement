@@ -26,16 +26,16 @@ export class RegisterComponent {
       Validators.minLength(5),
       Validators.maxLength(12),
     ]),
-    age: new FormControl('', [
-      Validators.required,
-      Validators.min(20),
-      Validators.max(80),
-    ]),
+    // birthOfDate: new FormControl('', [
+    //   Validators.required,
+    //   // Validators.min(20),
+    //   // Validators.max(80),
+    // ]),
     phoneNumber: new FormControl('', [
       Validators.required,
-      // Validators.min(11),
-      // Validators.max(14),
-      // Validators.pattern('^[0-9]'),
+      Validators.min(11),
+      Validators.max(14),
+      Validators.pattern('^[0-9]'),
     ]),
   });
   errors: any = '';
@@ -52,20 +52,16 @@ export class RegisterComponent {
   }
 
   submit() {
-    debugger;
-    this.registerForm.markAllAsTouched();
+     this.registerForm.markAllAsTouched();
 
-    if (this.registerForm.valid) {
-      this._AuthService
-        .register(this.registerForm.value)
-        .subscribe((Response) => {
+    if (this.registerForm.valid) {this._AuthService.register(this.registerForm.value).subscribe((Response) => {
           console.log(Response);
 
           if (Response.message == 'success') {
             this.router.navigate(['login']).then(() => {
-              // Optional: You can do something after navigation if needed
             });
-          } else {
+          } 
+          else {
             this.errors = Response.email.error.message;
           }
         });

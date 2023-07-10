@@ -7,18 +7,18 @@
             height: 100%; border: 1 solid white; border-radius: 20% 10%;">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="email">Email address</label>
                         <input style="border: 1 solid white; border-radius: 17px " type="email" id="email"
-                            class="form-control form-control-lg" />
+                           formControlName="email" class="form-control form-control-lg" />
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="password">Password</label>
-                        <input style="border: 1 solid white; border-radius: 17px" type="password" id="password"
+                        <input             formControlName="password" style="border: 1 solid white; border-radius: 17px" type="password" id="password"
                             class="form-control form-control-lg" />
                     </div>
 

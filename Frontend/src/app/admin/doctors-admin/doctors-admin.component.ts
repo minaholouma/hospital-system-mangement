@@ -8,6 +8,9 @@ import { DoctorService } from 'src/app/service/doctor.service';
 })
 export class DoctorsAdminComponent {
   listDoctors: any = [];
+  page: string|number|undefined;
+  doctors: any[] = [];
+
   constructor(private doctorService: DoctorService) {}
 
   getListDoctors() {

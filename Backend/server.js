@@ -33,7 +33,7 @@ app.use('/api', routes)
 const mongoose = require('mongoose')
 
 const url = process.env.CONEECTION_URL;
-const _PORT = process.env.PORT | 6000
+const _PORT = 3000
 const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true
