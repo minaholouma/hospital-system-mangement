@@ -1,39 +1,32 @@
 // set up app
 const express = require('express');
-const { connect } = require('mongoose');
-const path = require('path')
 const bodyParser = require('body-parser')
 const logger = require('morgan') // create log file
-const joi = require('joi')
 const bcrypt = require('bcrypt')
 const cors = require('cors')
 const app = express()
 
 // controller
 const routes = require('./index-routes')
+const mongoose = require('mongoose')
+const url = process.env.CONEECTION_URL;
+const _PORT = 3000
 
 
 //  middelware 
-app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-app.use(cors())
+// app.use(cors())
 app.use(logger('log'))
 
 app.use('/api', routes)
 
 
-/***
- * @SERVER_RUN_IN_DB_CONFIG 
- * */
 //db Connection and config
 
-const mongoose = require('mongoose')
 
-const url = process.env.CONEECTION_URL;
-const _PORT = 3000
 const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true

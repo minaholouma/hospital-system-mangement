@@ -7,8 +7,7 @@
         </div>
     </div>
     <div class="col-md-5">
-        <form [formGroup]="registerForm" (ngSubmit)="submit()">
-            <div class="formGroup">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div  style="border: 1 solid white; border-radius: 17px">
                     <label for="firstName">First Name </label>
                     <input style="border: 1 solid white; border-radius: 25px ;"
@@ -57,9 +56,8 @@
                     <input style="border: 1 solid white; border-radius: 25px" formControlName="phoneNumber"
                         type="number " class="form-control" name="phoneNumber" id="phoneNumber">
                 </div>
-            </div>
             <button style="margin-top: 2vh;  border: 1 solid white; border-radius: 17px" pButton pRipple
-                label="Register" icon="pi pi-user" class="w-100" type="submit" (click)="submit()"></button>
+                label="Register" icon="pi pi-user" class="w-100" type="submit" ></button>
         </form>
         <div style="margin-top: 2vh;">
             <span class="text-600 font-medium line-height-3">Don't have an account?</span>

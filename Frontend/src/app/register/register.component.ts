@@ -10,33 +10,12 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   registerForm: FormGroup = new FormGroup({
-    firstName: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(8),
-    ]),
-    lastName: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(15),
-    ]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-      Validators.maxLength(12),
-    ]),
-    // birthOfDate: new FormControl('', [
-    //   Validators.required,
-    //   // Validators.min(20),
-    //   // Validators.max(80),
-    // ]),
-    phoneNumber: new FormControl('', [
-      Validators.required,
-      Validators.min(11),
-      Validators.max(14),
-      Validators.pattern('^[0-9]'),
-    ]),
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    // birthOfDate: new FormControl(''),
+    phoneNumber: new FormControl(''),
   });
   errors: any = '';
   router: any;
@@ -51,19 +30,22 @@ export class RegisterComponent {
     return this.registerForm.get('lastName');
   }
 
-  submit() {
+  onSubmit() {
      this.registerForm.markAllAsTouched();
+    console.log(this.registerForm.value);
+    
+    if (this.registerForm.valid) {
+      this._AuthService.register(this.registerForm.value).subscribe(
+        (data) => {
+          console.log(data);
 
-    if (this.registerForm.valid) {this._AuthService.register(this.registerForm.value).subscribe((Response) => {
-          console.log(Response);
-
-          if (Response.message == 'success') {
-            this.router.navigate(['login']).then(() => {
-            });
-          } 
-          else {
-            this.errors = Response.email.error.message;
-          }
+          // if (data.message == 'success') {
+            this.router.navigate(['login']);
+          // } 
+          // else {
+          //   this.errors = Response.email.error.message;
+          // }
+        },(error)=>{console.log(error);
         });
     }
   }

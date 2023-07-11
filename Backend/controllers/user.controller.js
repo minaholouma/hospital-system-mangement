@@ -102,30 +102,11 @@ router.post('/register', async (req, res) => {
             console.log(oldAdmin)
             res.status(409).send('user Already exist , please login')
         }
-
         const newAdmin = await user.create(body)
-        // console.log("sssssss", newAdmin);
-        // // Create token
-        // const token = await jwt.sign({
-        //         userId: newAdmin._id,
-        //         email: body.email
-        //     },
-        //     process.env.TOKEN_KEY, {
-        //         expiresIn: "2h",
-        //     }
-        // );
-        // newAdmin.token = token;
-        // console.log("fffffffff", newAdmin);
-
         res.status(201).send(newAdmin)
     } catch (error) {
-
         res.status(400).send(error)
-
-
     }
-
-
 })
 //update 
 router.put('/:userId', async (req, res) => {

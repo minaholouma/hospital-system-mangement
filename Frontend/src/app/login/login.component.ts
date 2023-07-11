@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Route } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 @Component({
@@ -10,12 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-      Validators.maxLength(12),
-    ]),
+    email: new FormControl(''),
+    password: new FormControl(''),
   });
 
   errors: any = '';
@@ -29,19 +24,19 @@ export class LoginComponent {
   get password(): any {
     return this.loginForm.get('password');
   }
-  submit() {
+  onSubmit() {
     this.loginForm.markAllAsTouched();
     console.log(this.loginForm.value);
     if (this.loginForm.valid) {
-      this._AuthService.login(this.loginForm.value).subscribe((Response) => {
-        console.log(Response);
+      this._AuthService.login(this.loginForm.value).subscribe((data) => {
+        console.log(data);
         
-        // if (Response.message == 'success') {
-          localStorage.setItem('usertoken', Response.token);
+        // if (data.message == 'success') {
+          localStorage.setItem('usertoken', data.token);
           this._AuthService.saveuserdata();
           this.Router.navigate(['home']);
         // } else {
-        //   this.errors = Response.email.error.message;
+        //   this.errors = data.email.error.message;
         // }
       });
     }
