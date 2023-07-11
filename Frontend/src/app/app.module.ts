@@ -33,6 +33,7 @@ import { GatewayComponent } from './gateway/gateway.component';
 import { DoctorsAdminComponent } from './admin/doctors-admin/doctors-admin.component';
 import { PharmacyAdminComponent } from './admin/pharmacy-admin/pharmacy-admin.component';
 import { CarouselModule } from 'primeng/carousel';
+import { FormAddDoctorComponent } from './form-add-doctor/form-add-doctor.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CarouselModule } from 'primeng/carousel';
     GatewayComponent,
     DoctorsAdminComponent,
     PharmacyAdminComponent,
+    FormAddDoctorComponent,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

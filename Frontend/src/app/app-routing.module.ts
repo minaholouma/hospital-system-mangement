@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { GatewayComponent } from './gateway/gateway.component';
 import { DoctorsAdminComponent } from './admin/doctors-admin/doctors-admin.component';
 import { PharmacyAdminComponent } from './admin/pharmacy-admin/pharmacy-admin.component';
+import { FormAddDoctorComponent } from './form-add-doctor/form-add-doctor.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'admin/pharmacy', component: PharmacyAdminComponent },
   { path: 'admin', component: DoctorsAdminComponent },
   { path: 'gateway', component: GatewayComponent },
+  {path : 'add-doctor',component:FormAddDoctorComponent},
   { path: '**', component: NotFoundError },
 ];
 

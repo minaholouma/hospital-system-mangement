@@ -33,7 +33,7 @@ export class CartComponent {
 }
 minsAmount(index :number){
   
-  if (this.cartProduct[index].quantity <= 0) {
+  if (this.cartProduct[index].quantity <= 1) {
     return;
   }
   this.cartProduct[index].quantity--
@@ -79,7 +79,7 @@ calculateTotalPrice(price: string, quantity: string): string {
 }
 
 redirectToGatway() {
-  this._Router.navigate(['/gateway'], {queryParams: { totalAmounts: this.totalOrdersAmount}});
+  this._Router.navigate(['/gateway'], {queryParams: { totalAmounts: this.total}});
 
   const totalAmount :any = '' // Replace with the actual total amount
 

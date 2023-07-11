@@ -68,19 +68,4 @@ export class HomeComponent {
     return null;
   }
 
-  // ---------------
-  private scrollThreshold = 300;
-
-  // Show/hide the "scroll to top" button based on the user's scrolling position
-  public showScrollToTop = false;
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.showScrollToTop = window.pageYOffset > this.scrollThreshold;
-  }
-
-  // Scroll to the top of the page when the button is clicked
-  public scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
+ }
