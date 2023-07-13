@@ -9,7 +9,7 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-font-smoothing:antialiased;
 	-o-font-smoothing:antialiased;
-	font-smoothing:antialiased;
+	-font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
 
@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-	max-width:400px;
+	max-width:500px;
 	width:100%;
 	margin:0 auto;
 	position:relative;
@@ -35,13 +35,15 @@ body {
 	background:#F9F9F9;
 	padding:25px;
 	margin:50px 0;
+	direction: rtl;
 }
 
 #contact h3 {
-	color: #F96;
+	color: rgb(66, 187, 239);
 	display: block;
 	font-size: 30px;
 	font-weight: 400;
+	margin-bottom: 20px;
 }
 
 #contact h4 {
@@ -56,6 +58,9 @@ fieldset {
 	min-width: 100%;
 	padding: 0;
 	width: 100%;
+}
+input,textarea,button,file{
+	border-radius: 10px;
 }
 
 #contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
@@ -114,4 +119,7 @@ fieldset {
 }
 :-ms-input-placeholder {
  color:#888;
+}
+#contact-submit{
+	font-size: 25px !important;
 }

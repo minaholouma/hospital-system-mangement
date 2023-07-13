@@ -1,17 +1,17 @@
-<div class="cartBox">
-  <h1 class="text-danger">Shopping Cart</h1>
+<div class="cartBox" id="cart-translate">
+  <h1 class="text-danger">متجر الأدوية</h1>
   <div class="headCart">
-    <p class="lead">You have <label class="text-danger">{{cartProduct.length}}</label> item in your cart</p>
-    <span class="text-danger card-header" (click)="clearCart()">Clear Shopping Cart</span>
+    <p class="lead">لديك <label class="text-danger">{{cartProduct.length}}</label> طلب داخل السلة</p>
+    <span class="text-danger card-header" (click)="clearCart()">حذف السلة</span>
   </div>
   <table class="table table-striped">
     <thead>
       <tr>
         <th></th>
-        <th>Name</th>
-        <th>Price</th>
-        <th style="width: 25%;">Quantity</th>
-        <th>Totle</th>
+        <th>اسم العلاج</th>
+        <th>السعر</th>
+        <th style="width: 25%;">الكمية</th>
+        <th>الإجمالي</th>
         <th></th>
       </tr>
     </thead>
@@ -22,16 +22,16 @@
         <td>{{item.item.price}}</td>
         <td>
           <div class="quantity">
-          <button class="btn btn-dark" (change)="detectChange()" (click)="addAmount(index)">+</button>
-          <!-- <input type="number" class="form-control" [(ngModel)]="{{item.quantity}}" min="1"> -->
-          <input type="number" minlength="0" min="0" class="form-control" [(ngModel)]="item.quantity">
+            <button class="btn btn-dark" (change)="detectChange()" (click)="addAmount(index)">+</button>
+            <!-- <input type="number" class="form-control" [(ngModel)]="{{item.quantity}}" min="1"> -->
+            <input type="number" minlength="0" min="0" class="form-control" [(ngModel)]="item.quantity">
 
-          <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
-        </div>
+            <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
+          </div>
         </td>
-        <td>{{ calculateTotalPrice(item.item.price, item.quantity) }} L.E</td>
+        <td>{{ calculateTotalPrice(item.item.price, item.quantity) }} جنيها مصري</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteProduct(index)"> Delete</button>
+          <button class="btn btn-danger" (click)="deleteProduct(index)"> حذف</button>
         </td>
       </tr>
     </tbody>
@@ -41,10 +41,9 @@
         <th></th>
         <th></th>
         <th></th>
-        <th>Total :{{total}}</th>
-        <th><button (click)="redirectToGatway()" class="btn btn-success">order Now</button></th>
+        <th>الإجمالي :{{total}}</th>
+        <th><button (click)="redirectToGatway()" class="btn btn-success">اطلب الان</button></th>
       </tr>
     </tfoot>
   </table>
 </div>
-

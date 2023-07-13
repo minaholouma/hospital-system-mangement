@@ -1,5 +1,6 @@
-<div class="row justify-content-evenly">
-    <div class="display-6" style="margin-left: 60vh;"><strong>Register now</strong></div>
+<div class="row justify-content-evenly" id="register-translate">
+    <div class="display-6 " style="margin-left: 60vh;"><strong style="margin-right: 30%; ">التسجسل
+            الان</strong></div>
     <div class="col-md-6">
         <div class="text-center mb-5">
             <img src="../../assets/img/doct.png" alt="Image" style="width: 100%;
@@ -8,60 +9,60 @@
     </div>
     <div class="col-md-5">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                <div  style="border: 1 solid white; border-radius: 17px">
-                    <label for="firstName">First Name </label>
-                    <input style="border: 1 solid white; border-radius: 25px ;"
-                        [class.is-invalid]="firstName.invalid &&  firstName.touched" formControlName="firstName"
-                        type="text" class="form-control" name="firstName" id="firstName">
-                    <div *ngIf="firstName?.errors  && firstName?.touched" class="alert alert-danger mt-2 ">
-                        <p *ngIf="firstName?.errors['required']">first name is required</p>
-                        <p *ngIf="firstName?.errors['minlength']">first name minLength is 3</p>
-                        <p *ngIf="firstName?.errors['maxlength']">first name maxLength is 8</p>
-                    </div>
+            <div style="border: 1 solid white; border-radius: 17px">
+                <label for="firstName" class="register-margin">الاسم اللأول</label>
+                <input style="border: 1 solid white; border-radius: 25px ;"
+                    [class.is-invalid]="firstName.invalid &&  firstName.touched" formControlName="firstName" type="text"
+                    class="form-control" name="firstName" id="firstName">
+                <div *ngIf="firstName?.errors  && firstName?.touched" class="alert alert-danger mt-2 ">
+                    <p *ngIf="firstName?.errors['required']">first name is required</p>
+                    <p *ngIf="firstName?.errors['minlength']">first name minLength is 3</p>
+                    <p *ngIf="firstName?.errors['maxlength']">first name maxLength is 8</p>
                 </div>
-                <div style="border: 1 solid white; border-radius: 17px">
-                    <label for="lastName">Last Name </label>
-                    <input style="border: 1 solid white; border-radius: 25px"
-                        [class.is-invalid]="lastName.invalid && lastName.touched" formControlName="lastName" type="text"
-                        class="form-control" name="lastName" id="lastName">
-                    <div *ngIf="lastName.invalid && lastName.touched" class="alert alert-danger mt-2 ">
-                        <p *ngIf="lastName.errors?.['required']">last name is required</p>
-                        <p *ngIf="lastName.errors?.['minlength']">last name minLength is 3</p>
-                        <p *ngIf="lastName.errors?.['maxlength']">last name maxLength is 8</p>
-                    </div>
+            </div>
+            <div style="border: 1 solid white; border-radius: 17px">
+                <label for="lastName" class="register-margin">اسم العائلة </label>
+                <input style="border: 1 solid white; border-radius: 25px"
+                    [class.is-invalid]="lastName.invalid && lastName.touched" formControlName="lastName" type="text"
+                    class="form-control" name="lastName" id="lastName">
+                <div *ngIf="lastName.invalid && lastName.touched" class="alert alert-danger mt-2 ">
+                    <p *ngIf="lastName.errors?.['required']">last name is required</p>
+                    <p *ngIf="lastName.errors?.['minlength']">last name minLength is 3</p>
+                    <p *ngIf="lastName.errors?.['maxlength']">last name maxLength is 8</p>
                 </div>
+            </div>
 
 
-                <div style="border: 1 solid white; border-radius: 17px">
-                    <label for="email">Email </label>
-                    <input style="border: 1 solid white; border-radius: 25px;" formControlName="email" type="email "
-                        class="form-control" name="email" id="email">
-                </div>
+            <div style="border: 1 solid white; border-radius: 17px">
+                <label for="email" class="register-margin"> البريد الإلكتروني </label>
+                <input style="border: 1 solid white; border-radius: 25px;" formControlName="email" type="email "
+                    class="form-control" name="email" id="email">
+            </div>
 
 
-                <div style="border: 1 solid white; border-radius: 17px">
-                    <label for="password">Password </label>
-                    <input style="border: 1 solid white; border-radius: 25px;" formControlName="password" autocomplete
-                        type="password" class="form-control" name="password" id="password">
-                </div>
+            <div style="border: 1 solid white; border-radius: 17px">
+                <label for="password" class="register-margin">كلمة السر </label>
+                <input style="border: 1 solid white; border-radius: 25px;" formControlName="password" autocomplete
+                    type="password" class="form-control" name="password" id="password">
+            </div>
 
-                <!-- <div class="form-control" style="border: 1 solid white; border-radius: 17px">
+            <!-- <div class="form-control" style="border: 1 solid white; border-radius: 17px">
                     <label for="age">birthOfDate </label>
                     <input type="text" style="border: 1 solid white; border-radius: 25px" formControlName="birthOfDate"
                         class="form-control" name="Age" id="birthOfDate">
                 </div> -->
 
-                <div style="border: 1 solid white; border-radius: 17px">
-                    <label for="phoneNumber">Phone Number </label>
-                    <input style="border: 1 solid white; border-radius: 25px" formControlName="phoneNumber"
-                        type="number " class="form-control" name="phoneNumber" id="phoneNumber">
-                </div>
+            <div style="border: 1 solid white; border-radius: 17px">
+                <label for="phoneNumber" class="register-margin">رقم الهاتف </label>
+                <input style="border: 1 solid white; border-radius: 25px" formControlName="phoneNumber" type="number "
+                    class="form-control" name="phoneNumber" id="phoneNumber">
+            </div>
             <button style="margin-top: 2vh;  border: 1 solid white; border-radius: 17px" pButton pRipple
-                label="Register" icon="pi pi-user" class="w-100" type="submit" ></button>
+                label="Register" icon="pi pi-user" class="w-100" type="submit"></button>
         </form>
         <div style="margin-top: 2vh;">
-            <span class="text-600 font-medium line-height-3">Don't have an account?</span>
-            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+            <span class="text-600 font-medium line-height-3">هل تملك حساب ؟ </span>&nbsp;
+            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">يمكنك التسجيل الان</a>
         </div>
 
     </div>
