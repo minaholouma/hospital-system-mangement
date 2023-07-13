@@ -26,19 +26,24 @@ export class LoginComponent {
   }
   onSubmit() {
     this.loginForm.markAllAsTouched();
-    console.log(this.loginForm.value);
-    if (this.loginForm.valid) {
-      this._AuthService.login(this.loginForm.value).subscribe((data) => {
-        console.log(data);
-        
-        // if (data.message == 'success') {
-          localStorage.setItem('usertoken', data.token);
-          this._AuthService.saveuserdata();
-          this.Router.navigate(['home']);
-        // } else {
-        //   this.errors = data.email.error.message;
-        // }
-      });
-    }
-  }
+   console.log(this.loginForm.value);
+   
+   if (this.loginForm.valid) {
+     this._AuthService.register(this.loginForm.value).subscribe(
+       (res) => {
+         console.log('dsttttttttttttttttta ----> ', res)
+         if (res) {
+           this.Router.navigate(['home']);
+         } else {
+           alert('ddddddddddddddddddddddddd')
+         }
+         // else {
+         //   this.errors = Response.email.error.message;
+         // }
+       }, error => {
+         alert('welcome user');
+         this.Router.navigate(['/home']);
+       });
+   }
+ }
 }

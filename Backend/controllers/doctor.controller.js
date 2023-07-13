@@ -27,6 +27,7 @@ router.get('/:doctorId', async (req, res) => {
 router.post('/create', async (req, res) => {
     try {
         const body = req.body
+        console.log('body -----------> ', body)
         // body.password = await bcrypt.hash(body.password, 10)
         // body.email = body.email.toLowerCase();
         const oldDoctor = await doctor.find({

@@ -36,16 +36,19 @@ export class RegisterComponent {
     
     if (this.registerForm.valid) {
       this._AuthService.register(this.registerForm.value).subscribe(
-        (data) => {
-          console.log(data);
-
-          // if (data.message == 'success') {
-            this.router.navigate(['login']);
-          // } 
+        (res) => {
+          console.log('dsttttttttttttttttta ----> ', res)
+          if (res) {
+            this.Router.navigate(['login']);
+          } else {
+            alert('ddddddddddddddddddddddddd')
+          }
           // else {
           //   this.errors = Response.email.error.message;
           // }
-        },(error)=>{console.log(error);
+        }, error => {
+          alert('User Already Registered Before, You Can Login');
+          this.Router.navigate(['/login']);
         });
     }
   }

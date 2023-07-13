@@ -86,27 +86,36 @@ router.post('/login', async (req, res) => {
 
 //add 
 router.post('/register', async (req, res) => {
+    console.log('first step , ', req.body);
     try {
-        console.log("asdasdasd");
+        console.log('first try 1');
         const body = req.body
         body.password = await bcrypt.hash(body.password, 10)
         body.email = body.email.toLowerCase();
 
-        console.log("body", body);
-
-        const oldAdmin = await user.find({
+        const oldAdmin = await user.findOne({
             email: body.email
         });
-        console.log("oldadmin", oldAdmin);
-        if (!oldAdmin || oldAdmin == null || oldAdmin == []) {
+
+        console.log('oldAdmin -------> ', oldAdmin)
+
+        if (oldAdmin) {
+            alert('this is old user ')
             console.log(oldAdmin)
-            res.status(409).send('user Already exist , please login')
+            res.status(401).send({code: 400, message: 'user Already exist , please login'})
         }
-        const newAdmin = await user.create(body)
-        res.status(201).send(newAdmin)
+
+        console.log('After psdd sll step');
+
+        const newAdmin = await user.create(body);
+        console.log('Stored user suess , ', newAdmin)
+        res.status(200).send({newAdmin, status: 'success'})
     } catch (error) {
         res.status(400).send(error)
+        console.log('from catch')
     }
+
+
 })
 //update 
 router.put('/:userId', async (req, res) => {
