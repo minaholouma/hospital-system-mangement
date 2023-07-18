@@ -1,4 +1,45 @@
 <div class="container">
+<<<<<<< HEAD
+=======
+  <form id="contact" action="" method="post" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <h3>الاتصال السريع</h3>
+    <h4 style="color: steelblue;">تواصل معنا اليوم ، واحصل على رد خلال 24 ساعة</h4>
+    <fieldset>
+      <input placeholder="الاسم الأول" type="text" tabindex="1" required autofocus>
+    </fieldset>
+
+    <fieldset>
+      <input placeholder="اسم العائلة" type="text" tabindex="1" required autofocus>
+    </fieldset>
+
+    <fieldset>
+      <input placeholder="البريد الإلكتروني" type="email" tabindex="2" required>
+    </fieldset>
+
+    <fieldset>
+      <input type="file" accept="image/*" tabindex="2" required>
+    </fieldset>
+
+    <fieldset>
+      <input placeholder="اسم العيادة الخاصة بك " type="text" tabindex="1" required autofocus>
+    </fieldset>
+
+    <fieldset>
+      <input placeholder="الموقع" type="text" tabindex="1" required autofocus>
+    </fieldset>
+
+    <fieldset>
+      <input placeholder="رقم الهاتف" type="tel" tabindex="3" required>
+    </fieldset>
+
+    <fieldset>
+      <textarea placeholder="اكتب رسالتك هنا...." tabindex="5" required></textarea>
+    </fieldset>
+
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">إرسال</button>
+
+>>>>>>> origin/master
   <form id="contact" action="" method="post" [formGroup]="doctorInfo" (ngSubmit)="onSubmit()"
     enctype="multipart/form-data">
     <h3>Quick Contact</h3>
@@ -38,4 +79,3 @@
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
   </form>
-</div>
