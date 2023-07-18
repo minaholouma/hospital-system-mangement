@@ -1,5 +1,4 @@
-<!-- <div class="container py-2 "> -->
-  <!-- Card Start -->
+<!-- 
   <div class="card hov pulse">
     <div class="row ">
 
@@ -19,5 +18,26 @@
       </div>
     </div>
   </div>
-  <!-- End of card -->
+  -->
 
+<!-- <div class="container py-2 "> -->
+<!-- Card Start -->
+<div class="container ">
+  <div class="row">
+    <div class="col-xl-2">
+      <img class="doctorimg" src="{{data.image}}" alt="doctor_image">
+    </div>
+    <div class="col-xl-8">
+      <div class="card-block">
+        <h3 class="card-title"><b>{{data.name}}</b></h3>
+        <p class="card-text">
+          {{data.about}}
+        </p>
+        <h5 class="card-loc"><i class="fa-solid fa-location-dot"></i> {{data.location}}</h5>
+        <br>
+        <a [routerLink]="['/DoctorDetails',data._id]" class="btn">show more details</a>
+      </div>
+    </div>
+
+  </div>
+</div>

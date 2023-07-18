@@ -15,6 +15,7 @@ doctorSchema = new Schema({
     phone: String
 }
 )
+module.exports = mongoose.model("Doctors", doctorSchema);
 doctor = mongoose.model('Doctor', doctorSchema);
 module.exports = doctor;
 

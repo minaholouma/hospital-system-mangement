@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
     <div class="card-body">
       <form (ngSubmit)="submitForm()">
         <div class="form-group">
@@ -20,4 +20,45 @@
   
 <div class="payment">
     <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-</div>
+</div> -->
+
+<section>
+  <div class="container py-5 ">
+    <div class="row d-flex align-items-center  ">
+      <div class=" col-xl-5 offset-xl-1">
+        <form (ngSubmit)="submitForm()" class="row cont">
+          <div class="col">
+            <div class="form-outline">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" placeholder="your name.." [(ngModel)]="name" name="name"
+                required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <label for="phone">Phone:</label>
+              <input type="tel" class="form-control" id="phone" placeholder="your phone.." [(ngModel)]="phone"
+                name="phone" required>
+            </div>
+          </div>
+          <br>
+
+          <div class="form-outline mb-4">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" placeholder="your address.." [(ngModel)]="address"
+              name="address" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 radius-in">Submit</button>
+        </form>
+      </div>
+      <div class="col-xl-1">
+
+      </div>
+      <div class="col-xl-5">
+        <div class="payment">
+          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

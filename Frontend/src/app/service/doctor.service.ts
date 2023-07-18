@@ -22,12 +22,12 @@ export class DoctorService {
     paylodParams.name
       ? (params = params.append('name', paylodParams.name))
       : '';
-    // paylodParams.title
-    //   ? (params = params.append('title', paylodParams.title))
-    //   : '';
-    // paylodParams.price
-    //   ? (params = params.append('price', paylodParams.price))
-    //   : '';
+    paylodParams.title
+      ? (params = params.append('title', paylodParams.title))
+      : '';
+    paylodParams.price
+      ? (params = params.append('price', paylodParams.price))
+      : '';
 
     return this.http
       .get<IDoctor[]>('http://localhost:3000/doctors/search', { params })
